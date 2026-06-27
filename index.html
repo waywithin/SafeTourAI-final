@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeTour - Tourist Safety and Emergency Solution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQkk5rqLyHcztJkDk0wWH/1z5rs4Y5M=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#hero" aria-label="SafeTour home">
+      <span class="brand-mark">ST</span>
+      <span>SafeTour</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#features">Features</a>
+      <a href="#ai-demo">AI Demo</a>
+      <a href="#workflow">SOS</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Tourist Safety and Emergency Solution</p>
+          <h1>SafeTour - Your safety companion while traveling</h1>
+          <p class="hero-text">An AI-powered tourist safety platform that combines emergency response, offline protection, safe route intelligence, and location-aware risk alerts.</p>
+          <div class="hero-chips" aria-label="SafeTour primary capabilities">
+            <span>Real-Time Risk Monitoring</span>
+            <span>Instant SOS Alerts</span>
+            <span>Offline Emergency Support</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#ai-demo" class="btn primary">View Demo</a>
+            <a href="#implementation" class="btn secondary">Learn More</a>
+          </div>
+          <div class="info-row" aria-label="SafeTour product focus">
+            <div>
+              <strong>Location-Aware</strong>
+              <span>GPS-based safety context</span>
+            </div>
+            <div>
+              <strong>Model-Connected</strong>
+              <span>Streamlit prediction API ready</span>
+            </div>
+            <div>
+              <strong>Offline-Aware</strong>
+              <span>Cached contacts and help centers</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="phone-shell">
+            <div class="phone-top"></div>
+            <div class="map-panel">
+              <div class="route-line"></div>
+              <span class="pin safe">H</span>
+              <span class="pin police">P</span>
+              <span class="pin risk">!</span>
+              <span class="user-dot"></span>
+            </div>
+            <div class="alert-card">
+              <span class="status-dot"></span>
+              <div>
+                <strong>Risk alert nearby</strong>
+                <p>Safer route available in 4 min</p>
+              </div>
+            </div>
+            <button class="sos-pulse">SOS</button>
+          </div>
+          <div class="floating-card card-a">Offline Chennai Safety Pack</div>
+          <div class="floating-card card-b">Nearest police station: 0.8 km</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Problem Statement</p>
+        <h2>Tourists need safety intelligence before emergencies become serious</h2>
+      </div>
+      <div class="risk-grid">
+        <article class="glass-card reveal">
+          <h3>Tourist Safety Risks</h3>
+          <ul class="clean-list">
+            <li>Unfamiliar locations and routes</li>
+            <li>Local crime and scam-prone areas</li>
+            <li>Unsafe roads or isolated streets</li>
+            <li>Limited knowledge of nearby help centers</li>
+          </ul>
+        </article>
+        <article class="glass-card reveal">
+          <h3>Emergency Challenges</h3>
+          <ul class="clean-list">
+            <li>Delayed response during panic situations</li>
+            <li>Language barriers in unknown cities</li>
+            <li>Internet unavailability while traveling</li>
+            <li>No trusted local emergency contacts</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="solution">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Solution Overview</p>
+        <h2>A city-wise safety layer over regular maps</h2>
+      </div>
+      <div class="solution-grid">
+        <article class="glass-card reveal">
+          <span class="icon">RT</span>
+          <h3>Real-Time Monitoring</h3>
+          <p>Tracks GPS position, route movement, risk indicators, and proximity to safe or unsafe zones.</p>
+        </article>
+        <article class="glass-card reveal">
+          <span class="icon">SOS</span>
+          <h3>SOS Emergency Alerts</h3>
+          <p>Creates a location-rich emergency message and notifies trusted contacts through available channels.</p>
+        </article>
+        <article class="glass-card reveal">
+          <span class="icon">AI</span>
+          <h3>AI Risk Prediction</h3>
+          <p>Scores the current situation using time, incident reports, crowd density, weather, and distance to help.</p>
+        </article>
+        <article class="glass-card reveal">
+          <span class="icon">OFF</span>
+          <h3>Offline Emergency Mode</h3>
+          <p>Uses downloaded safety packs and GPS to warn users even when internet is unavailable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Core Features</p>
+        <h2>Everything needed to stay safer while traveling</h2>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card reveal"><span>01</span><h3>Live Location Tracking</h3><p>Share trusted live location with family or response teams.</p></article>
+        <article class="feature-card reveal"><span>02</span><h3>One-Tap SOS Alert</h3><p>Send location, battery status, and emergency context instantly.</p></article>
+        <article class="feature-card reveal"><span>03</span><h3>Offline Emergency Support</h3><p>Use cached city safety packs when internet is unavailable.</p></article>
+        <article class="feature-card reveal"><span>04</span><h3>Nearby Hospitals</h3><p>Locate medical support based on the tourist's current position.</p></article>
+        <article class="feature-card reveal"><span>05</span><h3>Nearby Police Stations</h3><p>Show verified police stations and emergency offices nearby.</p></article>
+        <article class="feature-card reveal"><span>06</span><h3>AI Risk Prediction</h3><p>Estimate low, medium, or high safety risk from multiple signals.</p></article>
+        <article class="feature-card reveal"><span>07</span><h3>Safety Score Dashboard</h3><p>Give a simple score that a tourist can understand quickly.</p></article>
+        <article class="feature-card reveal"><span>08</span><h3>Emergency Contacts</h3><p>Manage family, friends, hotel desk, guide, and local support.</p></article>
+        <article class="feature-card reveal"><span>09</span><h3>Multilingual Assistance</h3><p>Prepare emergency phrases and translation support for tourists.</p></article>
+      </div>
+    </section>
+
+    <!-- The ID here must be "ai-demo" so the navbar button can find it -->
+<section class="section ai-section" id="ai-demo">
+  <div class="section-heading reveal" style="text-align: center; margin-bottom: 30px;">
+    <p class="eyebrow">Interactive AI Demonstration</p>
+    <h2>Risk Scoring with Live Safety Data</h2>
+    <p class="section-note" style="margin-bottom: 20px;">This module connects directly to our deployed Streamlit Machine Learning core engine.</p>
+  </div>
+  
+  <div class="ai-container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 10px 0;">
+    <iframe 
+      src="https://safetour-final-uj84chwlixvxnununyxr9d.streamlit.app/?embedded=true" 
+      width="100%" 
+      height="800px" 
+      style="border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+    </iframe>
+  </div> 
+</section>
+
+    <section class="section" id="map-demo">
+      <div class="section-heading reveal">
+        <p class="eyebrow">OpenStreetMap Demo</p>
+        <h2>Live map layer with tourist, help centers, and risk zones</h2>
+        <p class="section-note">The map uses mock Chennai safety data when GPS is unavailable. In production, the same layer can be connected to verified GIS, tourism, police, and emergency service datasets.</p>
+      </div>
+      <div class="map-demo-grid">
+        <div class="glass-card reveal">
+          <div id="safety-map" class="safety-map" role="img" aria-label="SafeTour OpenStreetMap safety demo"></div>
+          <div id="danger-alert" class="danger-alert" style="display:none;">
+
+            <h3>⚠ HIGH RISK AREA DETECTED</h3>
+
+            <p>Move towards the highlighted safe route.</p>
+
+            <p><strong>Nearest Police Station:</strong> 0.8 km</p>
+
+            <p><strong>Nearest Hospital:</strong> 1.4 km</p>
+
+            <button class="btn primary">
+                Open Safe Route
+            </button>
+        </div>
+        <div id="warning-alert" class="warning-alert" style="display:none;">
+
+            <h3>⚠ Medium Risk Area</h3>
+
+            <p>Please stay alert while travelling.</p>
+
+            <p>Avoid isolated roads and crowded areas if possible.</p>
+
+        </div>
+        <div class="map-legend glass-card reveal">
+          <h3>Map Layers</h3>
+          <span><b class="legend tourist"></b> Current Tourist Location</span>
+          <span><b class="legend hospital"></b> Nearby Hospitals</span>
+          <span><b class="legend police"></b> Nearby Police Stations</span>
+          <span><b class="legend safe"></b> Safe Zones</span>
+          <span><b class="legend risk"></b> High-Risk Zones</span>
+          <button class="btn primary full" type="button" id="live-emergency">Live Emergency Simulation</button>
+          <div class="simulation-log" id="simulation-log" aria-live="polite">
+            <p>Simulation ready. Click the button to animate the emergency workflow.</p>
+          </div>
+          <div id="emergency-services" style="display:none;">
+
+                <h3>Nearby Emergency Services</h3>
+
+                <p>🚔 Central Police Station</p>
+
+                <p>🏥 Government Hospital</p>
+
+                <p>🆘 Tourist Help Center</p>
+
+        </div>
+        </div>
+        <div id="safe-route" style="display:none;">
+
+            <h3>Recommended Safe Route</h3>
+
+            <p>✔ Avoid Red Zone</p>
+
+            <p>✔ Use Main Road</p>
+
+            <p>✔ Estimated Time: 4 min</p>
+      </div>
+    </section>
+
+    <section class="section" id="data">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Data Sources</p>
+        <h2>Built on data that can be verified and updated</h2>
+      </div>
+      <div class="data-grid">
+        <article class="glass-card reveal"><h3>Government Crime Statistics</h3><p>Regional incident trends, police advisories, and official safety bulletins.</p></article>
+        <article class="glass-card reveal"><h3>OpenStreetMap</h3><p>Roads, landmarks, public facilities, hospitals, police stations, and routing data.</p></article>
+        <article class="glass-card reveal"><h3>Weather APIs</h3><p>Rain, storm, flood, heat, and hazard signals for risk scoring.</p></article>
+        <article class="glass-card reveal"><h3>Community Reports</h3><p>Verified tourist reports, hotel reports, guide inputs, and local moderation.</p></article>
+        <article class="glass-card reveal"><h3>Emergency Databases</h3><p>Hospitals, police, embassies, tourist help centers, and response agencies.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="section-heading reveal">
+        <p class="eyebrow">SOS Workflow</p>
+        <h2>One action triggers a complete emergency response path</h2>
+        <p class="section-note">The tourist only presses SOS. SafeTour automatically captures location, timestamp, nearby help centers, and emergency message content.</p>
+      </div>
+      <div class="workflow reveal">
+        <div>Press SOS</div>
+        <div>Capture GPS</div>
+        <div>Generate Alert</div>
+        <div>Notify Contacts</div>
+        <div>Send Data</div>
+        <div>Show Help Centers</div>
+        <div>Track Rescue</div>
+      </div>
+      <div class="sos-message glass-card reveal">
+        <h3>Auto-Generated Emergency Message</h3>
+        <p>"Emergency Alert: Assistance may be required. Last known location attached. Please check on the traveler immediately."</p>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Emergency Contact Management</p>
+        <h2>Trusted contacts stay available even during offline mode</h2>
+      </div>
+      <div class="contacts-grid">
+        <form class="glass-card contact-manager reveal" id="contact-manager">
+          <label>Contact Name<input type="text" id="trusted-name" placeholder="Family / Friend / Hotel Desk"></label>
+          <label>Phone or Email<input type="text" id="trusted-contact" placeholder="+91 90000 00000"></label>
+          <button class="btn primary full" type="submit">Add Trusted Contact</button>
+        </form>
+        <div class="glass-card reveal">
+          <h3>Saved Emergency Contacts</h3>
+          <div class="trusted-list" id="trusted-list"></div>
+          <button class="btn secondary full" type="button" id="notify-contacts">Simulate Emergency Notification</button>
+        </div>
+        <div class="glass-card offline-card reveal" id="offline-card">
+          <h3>Offline Emergency Mode</h3>
+          <p id="offline-status">Checking network status...</p>
+          <ul class="clean-list">
+            <li>Cached trusted contacts</li>
+            <li>Saved Chennai help centers</li>
+            <li>Offline SOS screen simulation</li>
+            <li>Retry sync when connection returns</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="translation">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Multilingual Assistance</p>
+        <h2>Emergency messages prepared for translation APIs</h2>
+        <p class="section-note">The tourist does not need to type during panic. SafeTour generates the emergency message and prepares it for translation before sending or showing it to local responders.</p>
+      </div>
+      <div class="translation-grid">
+        <div class="glass-card reveal">
+          <label class="language-picker">
+            Emergency Language
+            <select id="language-select">
+              <option value="en">English</option>
+              <option value="ta">Tamil</option>
+              <option value="hi">Hindi</option>
+              <option value="fr">French</option>
+              <option value="ja">Japanese</option>
+            </select>
+          </label>
+          <div class="translated-message" id="translated-message">
+            Emergency Alert: Assistance may be required. Last known location attached. Please check on the traveler immediately.
+          </div>
+        </div>
+        <div class="glass-card reveal">
+          <h3>Translation Workflow</h3>
+          <div class="translation-steps">
+            <span>Generate SOS text</span>
+            <span>Attach GPS and timestamp</span>
+            <span>Send to translation API</span>
+            <span>Show responder-ready message</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Technical Architecture</p>
+        <h2>A Feasible MVP Architecture</h2>
+      </div>
+      <div class="architecture">
+        <article class="arch-card reveal"><h3>Frontend</h3><p>HTML, CSS, JavaScript, later Flutter or React Native for mobile.</p></article>
+        <article class="arch-card reveal"><h3>Backend</h3><p>Flask or Node.js APIs for risk prediction, SOS requests, and help center search.</p></article>
+        <article class="arch-card reveal"><h3>Database</h3><p>PostgreSQL, MongoDB, or Firebase for users, locations, contacts, and safety zones.</p></article>
+        <article class="arch-card reveal"><h3>AI Module</h3><p>Random Forest Regression model, feature processing pipeline, safety score prediction engine, and risk classification layer.</p></article>
+        <article class="arch-card reveal"><h3>Maps API</h3><p>OpenStreetMap, Leaflet.js, Mapbox, or Google Maps for routes and zones.</p></article>
+        <article class="arch-card reveal"><h3>Notifications</h3><p>SMS gateway, push notifications, email alerts, and emergency dashboards.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="implementation">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Real-World Scenario</p>
+        <h2>How SafeTour behaves during a risky travel moment</h2>
+      </div>
+      <article class="scenario-card reveal">
+        <div>
+          <h3>Tourist enters an unfamiliar crowded area at night</h3>
+          <p>SafeTour detects a higher risk score because of time, low distance to a marked risk zone, reduced crowd safety, and past incident density. The app warns the tourist, suggests a safer route, highlights the nearest police station, and keeps SOS ready.</p>
+        </div>
+        <div class="scenario-steps">
+          <span>Detect increased risk</span>
+          <span>Generate warning</span>
+          <span>Suggest safer route</span>
+          <span>Enable SOS</span>
+          <span>Show nearest help center</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Roadmap</p>
+        <h2>From hackathon demo to deployable safety product</h2>
+      </div>
+      <div class="timeline">
+        <article class="reveal"><span>Phase 1</span><h3>Web Platform Launch</h3></article>
+        <article class="reveal"><span>Phase 2</span><h3>Mobile Application</h3></article>
+        <article class="reveal"><span>Phase 3</span><h3>Wearable SOS Band</h3></article>
+        <article class="reveal"><span>Phase 4</span><h3>AI Route Optimization</h3></article>
+        <article class="reveal"><span>Phase 5</span><h3>Government Partnerships</h3></article>
+        <article class="reveal"><span>Phase 6</span><h3>Smartwatch Support</h3></article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Ready for tourism and emergency-response collaboration</h2>
+      </div>
+      <form class="contact-form glass-card reveal" id="contact-form" novalidate>
+        <label>Name<input type="text" id="name" name="name" required></label>
+        <label>Email<input type="email" id="email" name="email" required></label>
+        <label>Message<textarea id="message" name="message" rows="5" required></textarea></label>
+        <button class="btn primary" type="submit">Send Message</button>
+        <p id="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="brand"><span class="brand-mark">ST</span><span>SafeTour</span></div>
+    <nav aria-label="Footer navigation">
+      <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="#architecture">Documentation</a>
+    </nav>
+    <p>© 2026 SafeTour. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
